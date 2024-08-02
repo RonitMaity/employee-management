@@ -1,1 +1,7 @@
-<app-employee-details></app-employee-details>
+<div style="display: flex; flex-wrap: wrap">
+  @for (employeeDetail of employeeDetails.users; track $index) {
+  <app-employee-details
+    [employeeDetails]="employeeDetail"
+  ></app-employee-details>
+  }
+</div>
