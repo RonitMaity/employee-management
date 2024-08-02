@@ -1,30 +1,34 @@
 <div class="employee-details-surface">
   <div class="employee-name-surface">
-    <img
-      src="https://www.w3schools.com/w3images/avatar2.png"
-      alt="Avatar"
-      class="avatar"
-    />
+    <img src="{{ employeeDetails.image }}" alt="Avatar" class="avatar" />
     <div>
       <p>
         <b>{{ employeeDetails.firstName }} {{ employeeDetails.lastName }}</b>
       </p>
-      <p>Sr. UI Developer</p>
+      <p>{{ employeeDetails.username }}</p>
     </div>
     <img src="edit.svg" alt="Avatar" class="edit-icon" />
   </div>
   <hr />
   <div class="employee-experience-surface">
-    <p>Experience : <b> 5 Years</b></p>
+    <p>
+      Age : <b> {{ employeeDetails.age }}</b>
+    </p>
     <div class="vertical"></div>
-    <p>Rating : <b> 5 Star</b></p>
+    <p>
+      Blood Group : <b> {{ employeeDetails.bloodGroup }}</b>
+    </p>
   </div>
   <hr />
   <div>
-    <p>Current Team : <b> 5 Years</b></p>
-    <p>Reporting Manager : <b> 5 Star</b></p>
+    <p>
+      department : <b> {{ employeeDetails.company.department }}</b>
+    </p>
+    <p>
+      title : <b> {{ employeeDetails.company.title }}</b>
+    </p>
   </div>
   <hr />
-  <img src="phone.svg" alt="Avatar" class="edit-icon" />
+  <img src="phone.svg" alt="Avatar" class="edit-icon"  />
   <img src="mail.svg" alt="Avatar" class="edit-icon" />
 </div>
