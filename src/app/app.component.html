@@ -1,3 +1,5 @@
+<app-header (sendSearchedKey)="getSearchKey($event)"></app-header>
+
 <div style="display: flex; flex-wrap: wrap">
   @for (employeeDetail of employeeDetails.users; track $index) {
   <app-employee-details

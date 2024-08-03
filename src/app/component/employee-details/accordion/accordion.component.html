@@ -1,0 +1,10 @@
+<div class="accordion">
+  <div *ngFor="let panel of panels; let i = index" class="accordion-item">
+    <div class="accordion-header" (click)="togglePanel(i)">
+      {{ panel.title }}
+    </div>
+    <div class="accordion-body" *ngIf="isOpen(i)">
+      {{ panel.content }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="logo">
+    <a routerLink="/">MyApp</a>
+  </div>
+  <nav class="navbar">
+    <ul>
+      <li (click)="showComponent('add')">Add a Employee</li>
+      <li (click)="showComponent('filter')">Filter</li>
+      <li (click)="showComponent('search')">Search</li>
+    </ul>
+  </nav>
+</header>
+
+<ng-container [ngSwitch]="activeComponent">
+  <app-search-filter
+    *ngSwitchCase="'search'"
+    (sendSearchInput)="getSearchInput($event)"
+  ></app-search-filter>
+</ng-container>
