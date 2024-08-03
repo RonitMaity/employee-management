@@ -1,7 +1,7 @@
 <app-header (sendSearchedKey)="getSearchKey($event)"></app-header>
 
 <div style="display: flex; flex-wrap: wrap">
-  @for (employeeDetail of employeeDetails.users; track $index) {
+  @for (employeeDetail of employeeDetailsModifiled.users; track $index) {
   <app-employee-details
     [employeeDetails]="employeeDetail"
   ></app-employee-details>

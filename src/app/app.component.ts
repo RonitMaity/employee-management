@@ -15,26 +15,30 @@ import { HeaderComponent } from "./component/header/header.component";
 export class AppComponent implements OnInit {
   title = "employee-management";
   employeeDetails: any;
-  accordionPanels = [
-    { title: "Panel 1", content: "Content for panel 1" },
-    { title: "Panel 2", content: "Content for panel 2" },
-    { title: "Panel 3", content: "Content for panel 3" },
-  ];
+  employeeDetailsModifiled: any;
 
   constructor(private employeeMockDataService: EmployeeMockDataService) {}
 
   ngOnInit() {
     this.employeeMockDataService.employeeData.subscribe((employeeData) => {
-      console.log(employeeData);
       this.employeeDetails = employeeData;
+      this.employeeDetailsModifiled = {
+        ...employeeData,
+        users: [...employeeData.users],
+      };
     });
   }
 
-  getSearchKey($event: string | null) {
-    this.employeeDetails.users = this.employeeDetails.users.filter(
-      (employee: any) => {
-        return employee.firstName.includes($event);
-      }
-    );
+  getSearchKey(searchTerm: string | null) {
+    if (searchTerm === null || searchTerm.trim() === "") {
+      this.employeeDetailsModifiled.users = [...this.employeeDetails.users];
+    } else {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
+      this.employeeDetailsModifiled.users = this.employeeDetails.users.filter(
+        (employee: any) => {
+          return employee.firstName.toLowerCase().includes(lowerCaseSearchTerm);
+        }
+      );
+    }
   }
 }
